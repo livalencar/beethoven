@@ -23,8 +23,6 @@ while(cap.isOpened()):
     _, thresh1 = cv2.threshold(blurred, 127, 255,
                                cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
 
-    # show thresholded image
-    cv2.imshow('Thresholded', thresh1)
 
     # check OpenCV version to avoid unpacking error
     (version, _, _) = cv2.__version__.split('.')
@@ -38,10 +36,6 @@ while(cap.isOpened()):
 
     # find contour with max area
     cnt = max(contours, key = lambda x: cv2.contourArea(x))
-
-    # create bounding rectangle around the contour (can skip below two lines)
-    x, y, w, h = cv2.boundingRect(cnt)
-    cv2.rectangle(crop_img, (x, y), (x+w, y+h), (0, 0, 255), 0)
 
     # finding convex hull
     hull = cv2.convexHull(cnt)
@@ -103,8 +97,6 @@ while(cap.isOpened()):
 
     # show appropriate images in windows
     cv2.imshow('Gesture', img)
-    all_img = np.hstack((drawing, crop_img))
-    cv2.imshow('Contours', all_img)
 
     k = cv2.waitKey(10)
     if k == 27:
