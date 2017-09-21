@@ -9,9 +9,9 @@ with sr.Microphone() as s:
     while True:
         audio = r.listen(s)
 
-        if audio == "Educação":
+        if r.recognize_google(audio, language='pt') == "educação":
 
             print("Você disse: ", r.recognize_google(audio, language='pt'))
-            os.system('totem ~/totem Vídeos/educacao.ogv')
+            os.system('totem ~/Vídeos/educacao.ogv')
         else:
-            print('Falhou')
+            print("Falhou")
