@@ -83,7 +83,7 @@ while cap.isOpened():
                cv2.CHAIN_APPROX_NONE)
 
     # find contour with max area
-    cnt = max(contours, key = lambda x: cv2.contourArea(x))
+    cnt = max(contours, key=lambda x: cv2.contourArea(x))
 
     # finding convex hull
     hull = cv2.convexHull(cnt)
@@ -131,16 +131,16 @@ while cap.isOpened():
 
     # define actions required
     if count_defects == 1:
-        cv2.putText(img,"I am Vipul", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img, "1", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     elif count_defects == 2:
-        str = "This is a basic hand gesture recognizer"
+        str = "2"
         cv2.putText(img, str, (5, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
     elif count_defects == 3:
-        cv2.putText(img,"This is 4 :P", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img, "3 :P", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     elif count_defects == 4:
-        cv2.putText(img,"Hi!!!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img, "4", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     else:
-        cv2.putText(img,"Hello World!!!", (50, 50),\
+        cv2.putText(img, "Hello World!!!", (50, 50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
 
     cv2.imshow('Gesture', img)
